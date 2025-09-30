@@ -3,14 +3,12 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/postbuild-404.cjs",
+    "build": "vite build",
+    "deploy:docs": "node scripts/deploy-to-docs.cjs",
     "preview": "vite preview"
-  }
-
-
+  },
   "dependencies": {
     "framer-motion": "^12.23.22",
     "react": "^19.1.1",

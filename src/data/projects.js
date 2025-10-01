@@ -11,7 +11,7 @@ export const projects = [
       'Per-patient session files with transcripts and reports'
     ],
     technologies: ['Python', 'WhisperX', 'FastAPI', 'Ollama', 'PyTorch'],
-    repo: 'https://github.com/placeholder',
+    repo: 'https://github.com/abduh3131/dr-ai-api/tree/v2',
     live: '',
     images: [
       { src: '/projects/cipherboard-primary.svg', alt: 'Dr AI overview screen' },
@@ -30,7 +30,7 @@ export const projects = [
       'Admin view for assignments and alerts'
     ],
     technologies: ['PHP', 'JavaScript', 'MySQL', 'Leaflet.js'],
-    repo: 'https://github.com/placeholder',
+    repo: 'https://github.com/abduh3131/LogisticsTrackingApp',
     live: '',
     images: [
       { src: '/projects/tracelab-primary.svg', alt: 'Logistics Map live tracker' },
@@ -49,7 +49,7 @@ export const projects = [
       'Exportable send logs'
     ],
     technologies: ['PHP', 'MySQL', 'Twilio API'],
-    repo: 'https://github.com/placeholder',
+    repo: 'https://github.com/abduh3131/SMS-Batch-Send',
     live: '',
     images: [
       { src: '/projects/ghostshell-primary.svg', alt: 'Batch SMS console' },
@@ -68,7 +68,7 @@ export const projects = [
       'Accessible components with keyboard navigation'
     ],
     technologies: ['React', 'Vite', 'React Router', 'Framer Motion', 'CSS'],
-    repo: 'https://github.com/abduh3131/port',
+    repo: 'https://github.com/abduh3131/portfolio',
     live: '',
     images: [
       { src: '/projects/signalwatch-primary.svg', alt: 'Portfolio landing' },

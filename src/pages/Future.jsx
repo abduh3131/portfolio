@@ -1,14 +1,15 @@
 import PageTransition from '../components/PageTransition.jsx'
 import Reveal from '../components/Reveal.jsx'
 
+const SPACING = {
+  panelsGap: '1rem',
+  panelPad: '1rem',
+  panelMB: '1rem',
+  timelineGap: '0.5rem',
+  listGap: '0.4rem',
+};
+
 const upcomingProjects = [
-  {
-    period: 'Q4 2025',
-    title: 'Capstone — Open-source Autonomous e-Scooter',
-    summary:
-      'Team capstone building an open-source autonomous scooter with sensing, navigation, and safety features. Includes reproducible tests, docs, and BOM.',
-    links: { repo: '', live: '' },
-  },
   {
     period: 'Ongoing',
     title: 'Assistant AI (wearable, local-first)',
@@ -84,79 +85,84 @@ const Future = () => (
     </header>
 
     {/* Upcoming Projects */}
-    <div className="resume__panels">
-      <Reveal className="resume__panel" threshold={0.2}>
-        <h3>Upcoming projects</h3>
-        <div className="resume__timeline">
-          {upcomingProjects.map((p) => (
-            <article key={p.title} className="resume__timeline-item">
-              <span>{p.period}</span>
-              <h4>{p.title}</h4>
-              <p>{p.summary}</p>
-              {(p.links?.repo || p.links?.live) && (
-                <p className="resume__links">
-                  {p.links?.repo && (
-                    <a href={p.links.repo} target="_blank" rel="noopener noreferrer">
-                      GitHub
-                    </a>
-                  )}
-                  {p.links?.repo && p.links?.live && ' · '}
-                  {p.links?.live && (
-                    <a href={p.links.live} target="_blank" rel="noopener noreferrer">
-                      Live
-                    </a>
-                  )}
-                </p>
-              )}
-            </article>
-          ))}
-        </div>
-      </Reveal>
-
-      {/* Learning Tracks + Certifications */}
-      <Reveal className="resume__panel" threshold={0.2} delay={0.1}>
-        <h3>Learning tracks</h3>
-        <div className="resume__stack">
-          {learningTracks.map((group) => (
-            <div key={group.label} className="resume__stack-group">
-              <strong>{group.label}</strong>
-              <ul>
-                {group.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          <div className="resume__stack-group">
-            <strong>Certifications (target)</strong>
-            <ul>
-              {certifications.map((c) => (
-                <li key={c}>{c}</li>
-              ))}
-            </ul>
+    <div
+      className="resume__panels"
+      style={{ display: 'grid', gap: SPACING.panelsGap, marginBottom: SPACING.panelMB, alignItems: 'start' }}
+    >
+      {/* Left Column */}
+      <div style={{ display: 'grid', gap: SPACING.panelsGap, alignContent: 'start' }}>
+        <Reveal className="resume__panel" threshold={0.2}>
+          <h3>Upcoming projects</h3>
+          <div className="resume__timeline">
+            {upcomingProjects.map((p) => (
+              <article key={p.title} className="resume__timeline-item">
+                <span>{p.period}</span>
+                <h4>{p.title}</h4>
+                <p>{p.summary}</p>
+                {(p.links?.repo || p.links?.live) && (
+                  <p className="resume__links">
+                    {p.links?.repo && (
+                      <a href={p.links.repo} target="_blank" rel="noopener noreferrer">
+                        GitHub
+                      </a>
+                    )}
+                    {p.links?.repo && p.links?.live && ' · '}
+                    {p.links?.live && (
+                      <a href={p.links.live} target="_blank" rel="noopener noreferrer">
+                        Live
+                      </a>
+                    )}
+                  </p>
+                )}
+              </article>
+            ))}
           </div>
-        </div>
-      </Reveal>
-    </div>
+        </Reveal>
 
-    {/* Hardware & Boards */}
-    <div className="resume__panels">
-      <Reveal className="resume__panel" threshold={0.2}>
-        <h3>Hardware • boards • home lab</h3>
-        <div className="resume__stack">
-          {hardwareBoards.map((group) => (
-            <div key={group.label} className="resume__stack-group">
-              <strong>{group.label}</strong>
+        <Reveal className="resume__panel" threshold={0.2}>
+          <h3>Hardware • boards • home lab</h3>
+          <div className="resume__stack">
+            {hardwareBoards.map((group) => (
+              <div key={group.label} className="resume__stack-group">
+                <strong>{group.label}</strong>
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Right Column */}
+      <div style={{ display: 'grid', gap: SPACING.panelsGap, alignContent: 'start' }}>
+        <Reveal className="resume__panel" threshold={0.2} delay={0.1}>
+          <h3>Learning tracks</h3>
+          <div className="resume__stack">
+            {learningTracks.map((group) => (
+              <div key={group.label} className="resume__stack-group">
+                <strong>{group.label}</strong>
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
+            <div className="resume__stack-group">
+              <strong>Certifications (target)</strong>
               <ul>
-                {group.items.map((item) => (
-                  <li key={item}>{item}</li>
+                {certifications.map((c) => (
+                  <li key={c}>{c}</li>
                 ))}
               </ul>
             </div>
-          ))}
-        </div>
-      </Reveal>
+          </div>
+        </Reveal>
+      </div>
     </div>
   </PageTransition>
 )

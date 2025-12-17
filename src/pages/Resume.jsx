@@ -12,65 +12,44 @@ const SPACING = {
 
 const experience = [
   {
-    period: '2025 — Present',
-    title: 'Vice President · Arab Student Union (OTU)',
+    period: 'Nov. 2025 — Present',
+    title: 'Software Developer – Early-Stage Mobile Platform (Startup)',
     summary:
-      'Lead events, partnerships, and communications. Coordinate volunteers, budgeting, and outreach while keeping everything organized and on schedule.',
+      'Developing and maintaining a cross-platform mobile application using Flutter. Designing architecture, implementing auth/data workflows, and building backend services with Firebase.',
   },
   {
-    period: '2023 — Present',
-    title: 'Freelance Full-Stack Developer',
+    period: 'May 2022 — July 2025',
+    title: 'Health Tech Software Developer – Dr. Hanoosh’s Medical Office',
     summary:
-      'Designed and built web applications end-to-end for small clients: authentication, dashboards, admin panels, and integrations. Delivered clean UIs, reliable APIs, and simple deployment hand-offs.',
+      'Designed and developed internal software tools to automate clinical documentation. Built a local AI-assisted system for SOAP reports and modular privacy-focused pipelines.',
   },
   {
-    period: '2022 — Present',
-    title: 'Office Administrator · Medical Office',
+    period: 'May 2022 — Present',
+    title: 'Software Developer and Web Consultant – Self-employed',
     summary:
-      'Handle clinic scheduling and documentation, support EMR workflows, and streamline day-to-day operations with organized, accurate records.',
+      'Designed, built, and maintained client websites using JS, PHP, SQL, and REST APIs. Performed major redesigns to improve usability and performance.',
   },
 ];
 
 const stackGroups = [
   {
-    label: 'languages & frameworks',
+    label: 'languages',
     items: [
-      'Java', 'C++', 'C', 'C#', 'Python', 'PHP',
-      'JavaScript', 'HTML', 'CSS',
-      'React', 'Vite', 'Node.js', 'FastAPI'
+      'Java', 'Python', 'C', 'C++', 'JavaScript', 'SQL', 'PHP', 'HTML', 'CSS'
     ],
   },
   {
-    label: 'tooling',
+    label: 'technologies',
     items: [
-      'Git/GitHub', 'MySQL', 'MongoDB', 'Linux/WSL', 'VS Code'
-    ],
-  },
-  {
-    label: 'hardware • networks • boards',
-    items: [
-      'ESP32-C6', 'Raspberry Pi 4', 'Raspberry Pi Pico W',
-      'Bluetooth LE', 'Wi-Fi networking', 'GPIO & sensors'
-    ],
-  },
-  {
-    label: 'machine learning & ai',
-    items: [
-      'Python ML', 'PyTorch', 'WhisperX', 'Ollama'
-    ],
-  },
-  {
-    label: 'learning',
-    items: [
-      'Laravel', 'Vue 3', 'Inertia', 'Cybersecurity (TryHackMe)'
+      'Git', 'Linux', 'Docker', 'REST APIs', 'MySQL', 'Firebase Firestore',
+      'Flutter', 'Node.js', 'Android Studio'
     ],
   },
   {
     label: 'practices',
     items: [
-      'Object-oriented design', 'Testing & QA', 'Accessibility (a11y)',
-      'API design', 'Responsive UX', 'Version control workflows',
-      'Performance tuning', 'Readable documentation'
+      'Object-Oriented Design', 'Agile Scrum', 'Debugging', 'Testing',
+      'Code Reviews', 'Version Control', 'AI-Assisted Development'
     ],
   },
 ];
@@ -78,13 +57,13 @@ const stackGroups = [
 const recognitions = [
   {
     period: '2025',
-    title: 'Elected VP, Arab Student Union (OTU)',
+    title: 'Vice President – Arab Student Union',
     summary: 'Student leadership role focusing on community building, events, and partnerships.',
   },
   {
-    period: '2024',
-    title: 'Ontario Tech Talent Learning — Project Management Badge',
-    summary: 'Applied structured planning, risk tracking, and delivery practices across personal and team projects.',
+    period: 'Dec. 2021',
+    title: 'Energy Project Management Fundamentals – PTAG / Talent',
+    summary: 'Certification in project management fundamentals.',
   },
 ];
 
@@ -107,91 +86,91 @@ const Resume = () => (
 
     <div
       className="resume__panels"
-      style={{ display: 'grid', gap: SPACING.panelsGap, marginBottom: SPACING.panelMB }}
+      style={{ display: 'grid', gap: SPACING.panelsGap, marginBottom: SPACING.panelMB, alignItems: 'start' }}
     >
-      <Reveal
-        className="resume__panel"
-        threshold={0.2}
-        style={{ padding: SPACING.panelPad, marginBottom: 0 }}
-      >
-        <h3>Summary</h3>
-        <p>
-          Fourth-year Software Engineering student at Ontario Tech who builds practical, clean, and reliable software.
-          Comfortable across Java, Python, C/C++/C#, PHP, and modern JS/React. I’ve shipped several full-stack apps as a
-          freelancer with a focus on readable code, friendly UX, and shipping on time. Currently VP of the Arab Student
-          Union and exploring cybersecurity via TryHackMe.
-        </p>
-        <a className="resume__download" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-          Download résumé PDF
-        </a>
-      </Reveal>
-
-      <Reveal
-        className="resume__panel"
-        threshold={0.2}
-        delay={0.1}
-        style={{ padding: SPACING.panelPad, marginBottom: 0 }}
-      >
-        <h3>Recognition</h3>
-        <div
-          className="resume__timeline"
-          style={{ display: 'grid', gap: SPACING.timelineGap, margin: 0 }}
+      {/* Left Column */}
+      <div style={{ display: 'grid', gap: SPACING.panelsGap, alignContent: 'start' }}>
+        <Reveal
+          className="resume__panel"
+          threshold={0.2}
+          style={{ padding: SPACING.panelPad, marginBottom: 0 }}
         >
-          {recognitions.map((item) => (
-            <article key={item.title} className="resume__timeline-item" style={{ margin: 0 }}>
-              <span>{item.period}</span>
-              <h4>{item.title}</h4>
-              <p>{item.summary}</p>
-            </article>
-          ))}
-        </div>
-      </Reveal>
-    </div>
+          <h3>Summary</h3>
+          <p>
+            Software Engineering student at Ontario Tech University with a focus on AI, Full-Stack Development, and Embedded Systems.
+            Experienced in building cross-platform mobile apps, AI-assisted tools, and web solutions.
+            Passionate about accelerating development with AI tools while maintaining architectural ownership.
+          </p>
+          <a className="resume__download" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            Download résumé PDF
+          </a>
+        </Reveal>
 
-    <div
-      className="resume__panels"
-      style={{ display: 'grid', gap: SPACING.panelsGap, marginBottom: SPACING.panelMB }}
-    >
-      <Reveal
-        className="resume__panel"
-        threshold={0.2}
-        style={{ padding: SPACING.panelPad, marginBottom: 0 }}
-      >
-        <h3>Experience</h3>
-        <div
-          className="resume__timeline"
-          style={{ display: 'grid', gap: SPACING.timelineGap, margin: 0 }}
+        <Reveal
+          className="resume__panel"
+          threshold={0.2}
+          style={{ padding: SPACING.panelPad, marginBottom: 0 }}
         >
-          {experience.map((item) => (
-            <article key={item.title} className="resume__timeline-item" style={{ margin: 0 }}>
-              <span>{item.period}</span>
-              <h4>{item.title}</h4>
-              <p>{item.summary}</p>
-            </article>
-          ))}
-        </div>
-      </Reveal>
+          <h3>Experience</h3>
+          <div
+            className="resume__timeline"
+            style={{ display: 'grid', gap: SPACING.timelineGap, margin: 0 }}
+          >
+            {experience.map((item) => (
+              <article key={item.title} className="resume__timeline-item" style={{ margin: 0 }}>
+                <span>{item.period}</span>
+                <h4>{item.title}</h4>
+                <p>{item.summary}</p>
+              </article>
+            ))}
+          </div>
+        </Reveal>
+      </div>
 
-      <Reveal
-        className="resume__panel"
-        threshold={0.2}
-        delay={0.1}
-        style={{ padding: SPACING.panelPad, marginBottom: 0 }}
-      >
-        <h3>Stack & Practices</h3>
-        <div className="resume__stack" style={{ display: 'grid', gap: SPACING.listGap }}>
-          {stackGroups.map((group) => (
-            <div key={group.label} className="resume__stack-group" style={{ margin: 0 }}>
-              <strong>{group.label}</strong>
-              <ul style={{ margin: 0, paddingLeft: '1.1rem' }}>
-                {group.items.map((item) => (
-                  <li key={item} style={{ margin: 0 }}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </Reveal>
+      {/* Right Column */}
+      <div style={{ display: 'grid', gap: SPACING.panelsGap, alignContent: 'start' }}>
+        <Reveal
+          className="resume__panel"
+          threshold={0.2}
+          delay={0.1}
+          style={{ padding: SPACING.panelPad, marginBottom: 0 }}
+        >
+          <h3>Recognition</h3>
+          <div
+            className="resume__timeline"
+            style={{ display: 'grid', gap: SPACING.timelineGap, margin: 0 }}
+          >
+            {recognitions.map((item) => (
+              <article key={item.title} className="resume__timeline-item" style={{ margin: 0 }}>
+                <span>{item.period}</span>
+                <h4>{item.title}</h4>
+                <p>{item.summary}</p>
+              </article>
+            ))}
+          </div>
+        </Reveal>
+
+        <Reveal
+          className="resume__panel"
+          threshold={0.2}
+          delay={0.1}
+          style={{ padding: SPACING.panelPad, marginBottom: 0 }}
+        >
+          <h3>Stack & Practices</h3>
+          <div className="resume__stack" style={{ display: 'grid', gap: SPACING.listGap }}>
+            {stackGroups.map((group) => (
+              <div key={group.label} className="resume__stack-group" style={{ margin: 0 }}>
+                <strong>{group.label}</strong>
+                <ul style={{ margin: 0, paddingLeft: '1.1rem' }}>
+                  {group.items.map((item) => (
+                    <li key={item} style={{ margin: 0 }}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
     </div>
   </PageTransition>
 );

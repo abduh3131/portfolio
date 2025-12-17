@@ -1,5 +1,21 @@
 export const projects = [
   {
+    id: 'capstone',
+    title: 'Autonomous E-Scooter',
+    tagline: 'Capstone Project',
+    description:
+      'Contributing to software architecture, data processing, and system integration for an autonomous micromobility platform.',
+    highlights: [
+      'Software architecture design',
+      'Data processing pipelines',
+      'System integration'
+    ],
+    technologies: ['Embedded Systems', 'AI', 'C++', 'Python'],
+    repo: '',
+    live: '',
+    images: []
+  },
+  {
     id: 'cipherboard',
     title: 'Dr AI',
     tagline: 'Local medical documentation assistant.',

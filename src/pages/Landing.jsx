@@ -5,13 +5,13 @@ import Reveal from '../components/Reveal.jsx'
 const signals = [
   {
     label: 'education',
-    value: '4th year',
+    value: 'Jan. 2021 – April 2026',
     description: 'Software Engineering @ Ontario Tech University (OTU).',
   },
   {
     label: 'focus',
-    value: 'AI • Full-stack • Embedded',
-    description: 'React, Node, Python, PHP/Laravel, sensors, dashboards.',
+    value: 'AI • Full-Stack • Embedded • Distributed Systems',
+    description: 'Java, Python, C++, Flutter, Node.js, SQL.',
   },
   {
     label: 'github',
@@ -43,30 +43,30 @@ const focusAreas = [
 
 const timeline = [
   {
-    period: '2024 — Present',
-    title: 'AI & Full-Stack Projects · Independent',
+    period: 'Nov. 2025 — Present',
+    title: 'Software Developer – Early-Stage Mobile Platform (Startup)',
     summary:
-      'Building AI-assisted apps, dashboards, and device-aware tools with a focus on speed and reliability.',
+      'Developing cross-platform mobile apps with Flutter, designing architecture, and building backend services with Firebase and external APIs.',
   },
   {
-    period: '2021 — Present',
-    title: 'Software Engineering · Ontario Tech University',
+    period: 'May 2022 — July 2025',
+    title: 'Health Tech Software Developer – Dr. Hanoosh’s Medical Office',
     summary:
-      'Fourth-year student applying systems, AI, and product engineering through hands-on builds.',
+      'Built AI-assisted documentation tools, automated reporting workflows, and designed privacy-focused modular pipelines.',
   },
   {
-    period: '—',
-    title: 'Open-source & Personal Repos · GitHub @abduh3131',
+    period: 'May 2022 — Present',
+    title: 'Software Developer and Web Consultant – Self-employed',
     summary:
-      'Experimenting with UI/UX, automation, and embedded prototypes; shipping learn-by-doing work.',
+      'Designing and maintaining client websites using JS, PHP, SQL, and REST APIs. Focusing on usability, performance, and long-term efficiency.',
   },
 ]
 
 const skillHighlights = [
-  ['Java', 'C++', 'C#'],
-  ['JavaScript', 'TypeScript', 'React'],
-  ['Node.js', 'PHP/Laravel', 'Python'],
-  ['Vue 3', 'Docker', 'Raspberry Pi'],
+  ['Java', 'Python', 'C', 'C++'],
+  ['JavaScript', 'SQL', 'PHP', 'HTML/CSS'],
+  ['Flutter', 'Node.js', 'Firebase', 'Docker'],
+  ['Git', 'Linux', 'REST APIs', 'Android Studio'],
 ]
 
 const Landing = () => (
@@ -104,8 +104,8 @@ const Landing = () => (
   location: 'Ontario, Canada',
   email: 'abhanoosh@gmail.com',
   github: 'github.com/abduh3131',
-  focus: ['AI-assisted products', 'full-stack web', 'embedded systems'],
-  currently: 'finishing 4th year SOFE at OTU'
+  focus: ['AI', 'Full-Stack', 'Distributed Systems', 'Embedded'],
+  currently: 'Software Engineering Student @ OTU'
 }`}
           </code>
           <div className="landing__terminal-grid">

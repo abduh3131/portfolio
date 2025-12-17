@@ -300,17 +300,20 @@
   0% {
     transform: translate3d(0, 0, 0);
   }
+
   100% {
     transform: translate3d(-60px, -60px, 0);
   }
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     opacity: 0.25;
     transform: scale(0.65);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.25);
@@ -696,6 +699,7 @@
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 32px;
+  align-items: start;
 }
 
 @media (max-width: 960px) {

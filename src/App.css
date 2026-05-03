@@ -801,8 +801,10 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  justify-content: space-between;
+  flex: 1;
   overflow: hidden;
+  gap: 0.3rem;
 }
 
 .console__feed-row {
@@ -810,9 +812,10 @@
   grid-template-columns: 50px 70px 1fr;
   gap: 0.7rem;
   align-items: baseline;
-  font-size: 0.78rem;
-  padding: 0.35rem 0;
+  font-size: 0.76rem;
+  padding: 0.3rem 0;
   border-bottom: 1px dashed transparent;
+  flex-shrink: 0;
 }
 
 .console__feed-time {

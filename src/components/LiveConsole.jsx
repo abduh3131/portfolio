@@ -89,7 +89,7 @@ const LiveConsole = () => {
     return () => { clearInterval(a); clearInterval(b); clearInterval(c) }
   }, [events.length])
 
-  const visibleCount = touchRef.current ? 3 : 5
+  const visibleCount = touchRef.current ? 5 : 8
   const visibleFeed = Array.from({ length: visibleCount }, (_, i) => events[(feedIdx + i) % events.length])
 
   return (
@@ -138,7 +138,7 @@ const LiveConsole = () => {
                   key={`${e.t}-${e.text}-${feedIdx}`}
                   className="console__feed-row"
                   initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1 - i * 0.18, x: 0 }}
+                  animate={{ opacity: Math.max(0.35, 1 - i * 0.1), x: 0 }}
                   exit={{ opacity: 0, x: 10 }}
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1], delay: i * 0.03 }}
                 >

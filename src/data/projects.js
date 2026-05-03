@@ -14,7 +14,7 @@ export const projects = [
     technologies: ['Python', 'NVIDIA Jetson', 'TensorRT', 'ROS', 'openpilot', 'SegFormer', 'RPLidar'],
     repo: 'https://github.com/abduh3131/MicroPilot',
     live: '',
-    images: []
+    cover: '/projects/micropilot.svg'
   },
   {
     id: 'dr-ai',
@@ -31,10 +31,7 @@ export const projects = [
     technologies: ['Python', 'WhisperX', 'Ollama', 'FastAPI', 'PyTorch', 'React'],
     repo: '',
     live: '',
-    images: [
-      { src: '/projects/cipherboard-primary.svg', alt: 'Dr AI overview screen' },
-      { src: '/projects/cipherboard-secondary.svg', alt: 'Dr AI report drill-down view' }
-    ]
+    cover: '/projects/drai.svg'
   },
   {
     id: 'aegisemr',
@@ -51,7 +48,7 @@ export const projects = [
     technologies: ['Next.js 15', 'React 19', 'NestJS', 'PostgreSQL', 'Prisma', 'Redis', 'BullMQ', 'Turborepo'],
     repo: '',
     live: '',
-    images: []
+    cover: '/projects/aegisemr.svg'
   },
   {
     id: 'edtech-marketplace',
@@ -68,7 +65,7 @@ export const projects = [
     technologies: ['React Native', 'Expo', 'TypeScript', 'Supabase', 'PostgreSQL', 'Agora RTC', 'Stripe Connect'],
     repo: '',
     live: '',
-    images: []
+    cover: '/projects/edtech.svg'
   },
   {
     id: 'logistics-marketplace',
@@ -85,10 +82,7 @@ export const projects = [
     technologies: ['Flutter', 'Dart', 'Firebase', 'Riverpod', 'GoRouter'],
     repo: '',
     live: '',
-    images: [
-      { src: '/projects/tracelab-primary.svg', alt: 'Logistics map and bidding view' },
-      { src: '/projects/tracelab-secondary.svg', alt: 'Job tracking and status overlays' }
-    ]
+    cover: '/projects/logistics.svg'
   },
   {
     id: 'client-sites',
@@ -104,6 +98,6 @@ export const projects = [
     technologies: ['React', 'PHP', 'Node.js', 'MySQL', 'REST APIs', 'SEO'],
     repo: '',
     live: '',
-    images: []
+    cover: '/projects/client-sites.svg'
   }
 ]

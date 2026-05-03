@@ -41,6 +41,11 @@ const Projects = () => (
             delay={i * 0.04}
             className={`pcard ${sizeFor(i)}`}
           >
+            {p.cover && (
+              <div className="pcard__cover">
+                <img src={p.cover} alt={`${p.title} preview`} loading="lazy" />
+              </div>
+            )}
             <div className="pcard__head">
               <span className="pcard__index">
                 {pad(i + 1)} / {pad(projects.length)}

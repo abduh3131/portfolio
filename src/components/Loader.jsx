@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { isTouch, prefersReducedMotion } from '../utils/device.js'
 
 const Loader = ({ onDone }) => {
@@ -30,29 +29,15 @@ const Loader = ({ onDone }) => {
   }, [onDone])
 
   return (
-    <AnimatePresence>
-      {!exiting && (
-        <motion.div
-          className="loader"
-          initial={{ opacity: 1 }}
-          exit={{ y: '-100%' }}
-          transition={{ duration: 0.7, ease: [0.83, 0, 0.17, 1] }}
-        >
-          <div className="loader__count">
-            {String(progress).padStart(3, '0')}<em>%</em>
-          </div>
-          <div className="loader__bar">
-            <motion.div
-              className="loader__bar-fill"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: progress / 100 }}
-              transition={{ ease: 'linear' }}
-            />
-          </div>
-          <div className="loader__label">ABDULLAH HANOOSH</div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div className={`loader ${exiting ? 'loader--exit' : ''}`}>
+      <div className="loader__count">
+        {String(progress).padStart(3, '0')}<em>%</em>
+      </div>
+      <div className="loader__bar">
+        <div className="loader__bar-fill" style={{ transform: `scaleX(${progress / 100})`, transformOrigin: 'left center' }} />
+      </div>
+      <div className="loader__label">ABDULLAH HANOOSH</div>
+    </div>
   )
 }
 

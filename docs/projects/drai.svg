@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="da-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16130f"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#da-bg)"/>
+
+  <g transform="translate(80, 90)">
+    <g font-family="ui-monospace, 'SF Mono', monospace" font-size="13" fill="#8a857c">
+      <text x="0" y="0" fill="#8aa3bd" letter-spacing="2">▸ SOAP REPORT · PT_0042</text>
+
+      <text x="0" y="50" fill="#eeeae0" font-weight="500">SUBJECTIVE</text>
+      <rect x="0" y="60" width="640" height="2" fill="#8aa3bd" fill-opacity="0.2"/>
+      <text x="0" y="85" fill="#8a857c">Patient reports persistent dry cough × 5 days</text>
+      <text x="0" y="105" fill="#8a857c">No fever, mild fatigue, no chest pain</text>
+
+      <text x="0" y="150" fill="#eeeae0" font-weight="500">OBJECTIVE</text>
+      <rect x="0" y="160" width="640" height="2" fill="#8aa3bd" fill-opacity="0.2"/>
+      <text x="0" y="185" fill="#8a857c">BP 120/80  HR 72  T 36.7  SpO₂ 98%</text>
+      <text x="0" y="205" fill="#8a857c">Lungs: clear bilaterally, no wheeze</text>
+
+      <text x="0" y="250" fill="#eeeae0" font-weight="500">ASSESSMENT</text>
+      <rect x="0" y="260" width="640" height="2" fill="#8aa3bd" fill-opacity="0.2"/>
+      <text x="0" y="285" fill="#8a857c">Likely viral URI · resolving</text>
+
+      <text x="0" y="320" fill="#eeeae0" font-weight="500">PLAN</text>
+      <rect x="0" y="330" width="640" height="2" fill="#8aa3bd" fill-opacity="0.2"/>
+      <text x="0" y="355" fill="#8aa3bd">▸ Supportive care · fluids · rest</text>
+      <text x="0" y="375" fill="#8aa3bd">▸ Re-eval if persists &gt; 7 days</text>
+    </g>
+  </g>
+
+  <g transform="translate(680, 90)" font-family="ui-monospace, 'SF Mono', monospace" font-size="10" letter-spacing="2">
+    <circle cx="6" cy="6" r="6" fill="#8aa3bd">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="20" y="11" fill="#8aa3bd">REC</text>
+  </g>
+  <text x="40" y="40" font-family="ui-monospace, 'SF Mono', monospace" font-size="11" letter-spacing="3" fill="#4d4940">DR AI / OFFLINE / WHISPERX + LOCAL LLM</text>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="cs-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16130f"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#cs-bg)"/>
+
+  <text x="40" y="40" font-family="ui-monospace, 'SF Mono', monospace" font-size="11" letter-spacing="3" fill="#4d4940">CLIENT WORK · 5 LIVE SITES · ~3.2K MO. VISITORS</text>
+
+  <g transform="translate(60, 90)">
+    <g>
+      <rect width="220" height="160" fill="#181818" stroke="#8aa3bd" stroke-opacity="0.2" rx="8"/>
+      <rect x="0" y="0" width="220" height="22" fill="#0a0a0a"/>
+      <circle cx="14" cy="11" r="3" fill="#4d4940"/>
+      <circle cx="26" cy="11" r="3" fill="#4d4940"/>
+      <circle cx="38" cy="11" r="3" fill="#4d4940"/>
+      <text x="60" y="15" font-family="ui-monospace, 'SF Mono', monospace" font-size="9" fill="#4d4940">private-clinic.example</text>
+
+      <rect x="20" y="42" width="180" height="14" fill="#8aa3bd" fill-opacity="0.3" rx="2"/>
+      <rect x="20" y="64" width="120" height="6" fill="#8a857c" fill-opacity="0.2" rx="1"/>
+      <rect x="20" y="76" width="100" height="6" fill="#8a857c" fill-opacity="0.2" rx="1"/>
+      <rect x="20" y="100" width="80" height="20" fill="#8aa3bd" rx="3"/>
+      <rect x="20" y="132" width="40" height="3" fill="#8aa3bd"/>
+      <text x="200" y="146" text-anchor="end" font-family="ui-monospace, 'SF Mono', monospace" font-size="9" fill="#8aa3bd">~1.7k/mo</text>
+    </g>
+
+    <g transform="translate(240, 0)">
+      <rect width="220" height="160" fill="#181818" stroke="#8aa3bd" stroke-opacity="0.2" rx="8"/>
+      <rect x="0" y="0" width="220" height="22" fill="#0a0a0a"/>
+      <circle cx="14" cy="11" r="3" fill="#4d4940"/>
+      <circle cx="26" cy="11" r="3" fill="#4d4940"/>
+      <circle cx="38" cy="11" r="3" fill="#4d4940"/>
+      <text x="60" y="15" font-family="ui-monospace, 'SF Mono', monospace" font-size="9" fill="#4d4940">retail-shop.example</text>
+
+      <rect x="20" y="42" width="160" height="12" fill="#8aa3bd" fill-opacity="0.25" rx="2"/>
+      <rect x="20" y="62" width="80" height="60" fill="#0a0a0a" stroke="#8a857c" stroke-opacity="0.2" rx="3"/>
+      <rect x="110" y="62" width="80" height="60" fill="#0a0a0a" stroke="#8a857c" stroke-opacity="0.2" rx="3"/>
+      <text x="200" y="146" text-anchor="end" font-family="ui-monospace, 'SF Mono', monospace" font-size="9" fill="#8aa3bd">~1.1k/mo</text>
+    </g>
+
+    <g transform="translate(480, 0)">
+      <rect width="220" height="160" fill="#181818" stroke="#8aa3bd" stroke-opacity="0.2" rx="8"/>
+      <rect x="0" y="0" width="220" height="22" fill="#0a0a0a"/>
+      <circle cx="14" cy="11" r="3" fill="#4d4940"/>
+      <circle cx="26" cy="11" r="3" fill="#4d4940"/>
+      <circle cx="38" cy="11" r="3" fill="#4d4940"/>
+      <text x="60" y="15" font-family="ui-monospace, 'SF Mono', monospace" font-size="9" fill="#4d4940">small-biz.example</text>
+
+      <rect x="20" y="42" width="180" height="14" fill="#8aa3bd" fill-opacity="0.3" rx="2"/>
+      <rect x="20" y="64" width="180" height="40" fill="#0a0a0a" stroke="#8a857c" stroke-opacity="0.2" rx="3"/>
+      <rect x="20" y="112" width="120" height="6" fill="#8a857c" fill-opacity="0.2" rx="1"/>
+      <text x="200" y="146" text-anchor="end" font-family="ui-monospace, 'SF Mono', monospace" font-size="9" fill="#8aa3bd">~400/mo</text>
+    </g>
+  </g>
+
+  <g transform="translate(60, 290)">
+    <text font-family="ui-monospace, 'SF Mono', monospace" font-size="10" letter-spacing="2" fill="#8aa3bd">▸ RIIPEN INDUSTRY PROJECT · ON-SITE AI</text>
+
+    <rect x="0" y="20" width="640" height="120" fill="#181818" stroke="#8aa3bd" stroke-opacity="0.2" rx="8"/>
+
+    <g transform="translate(20, 50)" font-family="ui-monospace, 'SF Mono', monospace" font-size="11" fill="#8a857c">
+      <text fill="#eeeae0">▸ User · "What's the price for the deluxe package?"</text>
+      <text y="22" fill="#8aa3bd">  AI · "Deluxe runs $1,240 — includes setup + 1yr support."</text>
+      <text y="46" fill="#eeeae0">▸ User · "Do you ship internationally?"</text>
+      <text y="68" fill="#8aa3bd">  AI · "Yes — 32 countries. Shipping calculated at checkout."</text>
+    </g>
+  </g>
+
+  <text x="60" y="470" font-family="ui-monospace, 'SF Mono', monospace" font-size="10" letter-spacing="2" fill="#4d4940">REACT · PHP · NODE.JS · MYSQL · 100% RETENTION</text>
+</svg>

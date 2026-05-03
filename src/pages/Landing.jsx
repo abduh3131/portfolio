@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import PageTransition from '../components/PageTransition.jsx'
 import Reveal from '../components/Reveal.jsx'
 import LiveConsole from '../components/LiveConsole.jsx'
@@ -29,15 +28,13 @@ const Landing = () => (
     
     <section className="hero">
       <div className="hero__top">
-        <motion.div className="hero__intro"
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}>
+        <div className="hero__intro fade-up" style={{ animationDelay: '0.2s' }}>
           <span><strong>● Available</strong> · founding-engineer roles, contracts</span>
           <span>Remote · worldwide</span>
-        </motion.div>
-        <motion.div className="hero__index"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
+        </div>
+        <div className="hero__index fade-in" style={{ animationDelay: '0.3s' }}>
           <span>Index</span> · 01 / 05
-        </motion.div>
+        </div>
       </div>
 
       <h1 className="hero__name" aria-label="Abdullah Hanoosh">
@@ -46,17 +43,15 @@ const Landing = () => (
       </h1>
 
       <div className="hero__bottom">
-        <motion.p className="hero__pitch"
-          initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4, duration: 0.7 }}>
+        <p className="hero__pitch fade-up" style={{ animationDelay: '1.4s' }}>
           Software Engineer & founder of <strong>Hanoosh Software</strong>. I design, build, and ship production
           systems across <strong>AI</strong>, <strong>full-stack</strong>, and <strong>embedded autonomy</strong> —
           end-to-end, with full ownership of every architectural decision.
-        </motion.p>
-        <motion.div className="hero__actions"
-          initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.6, duration: 0.7 }}>
+        </p>
+        <div className="hero__actions fade-up" style={{ animationDelay: '1.6s' }}>
           <MagneticButton to="/projects" variant="primary">Selected work</MagneticButton>
           <MagneticButton to="/contact">Get in touch</MagneticButton>
-        </motion.div>
+        </div>
       </div>
     </section>
 
@@ -131,11 +126,16 @@ const Landing = () => (
         {featured.map((p, i) => (
           <Reveal key={p.id} className={`bento__cell ${i === 0 ? 'bento__cell--feature' : 'bento__cell--side'}`} threshold={0.15}>
             <TiltCard className="" max={i === 0 ? 4 : 6}>
-              <div className="bento__index">
-                <span>0{i + 1} / {String(featured.length).padStart(2, '0')}</span>
-                <span>{i === 0 ? '★ Pinned' : 'Selected'}</span>
-              </div>
-              <div>
+              {p.cover && (
+                <div className="bento__cover">
+                  <img src={p.cover} alt={`${p.title} preview`} loading="lazy" />
+                </div>
+              )}
+              <div className="bento__body">
+                <div className="bento__index">
+                  <span>0{i + 1} / {String(featured.length).padStart(2, '0')}</span>
+                  <span>{i === 0 ? '★ Pinned' : 'Selected'}</span>
+                </div>
                 <h3 className="bento__title">{p.title}</h3>
                 <p className="bento__desc">{p.description}</p>
                 <div className="bento__chips">

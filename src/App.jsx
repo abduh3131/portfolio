@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
+import { Routes, Route, useLocation } from 'react-router-dom'
 
 import MeshBackground from './components/MeshBackground.jsx'
 import Cursor from './components/Cursor.jsx'
@@ -14,6 +13,7 @@ import Projects from './pages/Projects.jsx'
 import Resume from './pages/Resume.jsx'
 import Contact from './pages/Contact.jsx'
 import Future from './pages/Future.jsx'
+import NotFound from './pages/NotFound.jsx'
 
 import './App.css'
 
@@ -34,33 +34,21 @@ function App() {
       <Cursor />
       <ScrollProgress />
 
-      <AnimatePresence>
-        {!loaded && <Loader key="loader" onDone={() => setLoaded(true)} />}
-      </AnimatePresence>
+      {!loaded && <Loader onDone={() => setLoaded(true)} />}
 
       {loaded && (
         <>
           <Navigation />
           <ScrollToTop />
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={location.pathname}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<Landing />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/resume" element={<Resume />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/future" element={<Future />} />
-                <Route path="*" element={<Navigate to="/" replace />} />
-              </Routes>
-            </motion.div>
-          </AnimatePresence>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Landing />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/future" element={<Future />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
 
           <footer className="footer">
             <span className="footer__brand">

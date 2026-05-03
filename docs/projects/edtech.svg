@@ -25,13 +25,13 @@
       <g transform="translate(20, 156)">
         <rect width="84" height="86" fill="#0a0a0a" rx="10" stroke="#8aa3bd" stroke-opacity="0.2"/>
         <circle cx="42" cy="34" r="14" fill="#8aa3bd" fill-opacity="0.4"/>
-        <text x="42" y="62" text-anchor="middle" font-size="10" fill="#eeeae0">Sara K.</text>
+        <text x="42" y="62" text-anchor="middle" font-size="10" fill="#eeeae0">Tutor 01</text>
         <text x="42" y="76" text-anchor="middle" font-size="8" fill="#8aa3bd">★ 4.9</text>
       </g>
       <g transform="translate(116, 156)">
         <rect width="84" height="86" fill="#0a0a0a" rx="10" stroke="#8aa3bd" stroke-opacity="0.2"/>
         <circle cx="42" cy="34" r="14" fill="#8aa3bd" fill-opacity="0.3"/>
-        <text x="42" y="62" text-anchor="middle" font-size="10" fill="#eeeae0">Omar A.</text>
+        <text x="42" y="62" text-anchor="middle" font-size="10" fill="#eeeae0">Tutor 02</text>
         <text x="42" y="76" text-anchor="middle" font-size="8" fill="#8aa3bd">★ 5.0</text>
       </g>
 

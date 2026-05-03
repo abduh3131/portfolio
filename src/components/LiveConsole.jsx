@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { isTouch, prefersReducedMotion } from '../utils/device.js'
 
 const modules = [
   { name: 'drai',       status: 'LIVE',  meta: '99.9% uptime' },
@@ -22,7 +23,7 @@ const events = [
 ]
 
 const stack = [
-  'Python', 'TypeScript', 'React 19', 'Next.js 15', 'NestJS',
+  'Python', 'TypeScript', 'React 19', 'Next.js', 'NestJS',
   'Flutter', 'React Native', 'PostgreSQL', 'Prisma', 'Redis',
   'Ollama', 'WhisperX', 'TensorRT', 'Jetson', 'ROS',
   'Docker', 'GCP', 'Supabase', 'BullMQ', 'Turborepo',
@@ -32,28 +33,26 @@ const LiveConsole = () => {
   const [feedIdx, setFeedIdx] = useState(0)
   const [activeMod, setActiveMod] = useState(0)
   const [tick, setTick] = useState(0)
-  const containerRef = useRef(null)
+  const reducedRef = useRef(false)
+  const touchRef = useRef(false)
 
   useEffect(() => {
-    const id = setInterval(() => setFeedIdx((i) => (i + 1) % events.length), 2400)
-    return () => clearInterval(id)
+    reducedRef.current = prefersReducedMotion()
+    touchRef.current = isTouch()
+    if (reducedRef.current) return
+    const feedMs = touchRef.current ? 3600 : 2400
+    const modMs  = touchRef.current ? 2800 : 1900
+    const a = setInterval(() => setFeedIdx((i) => (i + 1) % events.length), feedMs)
+    const b = setInterval(() => setActiveMod((i) => (i + 1) % modules.length), modMs)
+    const c = setInterval(() => setTick((t) => t + 1), 1000)
+    return () => { clearInterval(a); clearInterval(b); clearInterval(c) }
   }, [])
 
-  useEffect(() => {
-    const id = setInterval(() => setActiveMod((i) => (i + 1) % modules.length), 1900)
-    return () => clearInterval(id)
-  }, [])
-
-  useEffect(() => {
-    const id = setInterval(() => setTick((t) => t + 1), 1000)
-    return () => clearInterval(id)
-  }, [])
-
-  const visibleFeed = Array.from({ length: 5 }, (_, i) => events[(feedIdx + i) % events.length])
+  const visibleCount = touchRef.current ? 3 : 5
+  const visibleFeed = Array.from({ length: visibleCount }, (_, i) => events[(feedIdx + i) % events.length])
 
   return (
-    <div className="console" ref={containerRef}>
-      
+    <div className="console">
       <div className="console__bar">
         <div className="console__bar-left">
           <span className="console__dot" />
@@ -69,7 +68,6 @@ const LiveConsole = () => {
       </div>
 
       <div className="console__grid">
-        
         <section className="console__panel">
           <header className="console__h">
             <span>modules</span>
@@ -77,10 +75,7 @@ const LiveConsole = () => {
           </header>
           <ul className="console__modules">
             {modules.map((m, i) => (
-              <li
-                key={m.name}
-                className={`console__module ${i === activeMod ? 'is-active' : ''}`}
-              >
+              <li key={m.name} className={`console__module ${i === activeMod ? 'is-active' : ''}`}>
                 <span className="console__module-bullet">{i === activeMod ? '▸' : ' '}</span>
                 <span className="console__module-name">{m.name}</span>
                 <span className={`console__pill console__pill--${m.status.toLowerCase()}`}>{m.status}</span>
@@ -90,7 +85,6 @@ const LiveConsole = () => {
           </ul>
         </section>
 
-        
         <section className="console__panel console__panel--feed">
           <header className="console__h">
             <span>event feed</span>
@@ -102,10 +96,10 @@ const LiveConsole = () => {
                 <motion.li
                   key={`${e.t}-${e.text}-${feedIdx}`}
                   className="console__feed-row"
-                  initial={{ opacity: 0, x: -12, height: 0 }}
-                  animate={{ opacity: 1 - i * 0.18, x: 0, height: 'auto' }}
-                  exit={{ opacity: 0, x: 12 }}
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: i * 0.04 }}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1 - i * 0.18, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1], delay: i * 0.03 }}
                 >
                   <span className="console__feed-time">{e.t}</span>
                   <span className={`console__feed-tag console__feed-tag--${e.tone}`}>{e.tag}</span>
@@ -116,27 +110,19 @@ const LiveConsole = () => {
           </ul>
         </section>
 
-        
-        <section className="console__panel">
+        <section className="console__panel console__panel--stack">
           <header className="console__h">
             <span>stack</span>
             <span>{stack.length}</span>
           </header>
           <div className="console__stack">
-            {stack.map((s, i) => (
-              <span
-                key={s}
-                className="console__stack-chip"
-                style={{ animationDelay: `${(i * 0.13) % 3}s` }}
-              >
-                {s}
-              </span>
+            {stack.map((s) => (
+              <span key={s} className="console__stack-chip">{s}</span>
             ))}
           </div>
         </section>
       </div>
 
-      
       <div className="console__footer">
         <span>● operational</span>
         <span className="console__sep">·</span>

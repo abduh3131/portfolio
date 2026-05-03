@@ -1,16 +1,19 @@
-import { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { isTouch } from '../utils/device.js'
 
 const MagneticButton = ({ to, href, children, variant = '', strength = 0.3, ...rest }) => {
   const ref = useRef(null)
+  const [enabled, setEnabled] = useState(false)
+
+  useEffect(() => { if (!isTouch()) setEnabled(true) }, [])
 
   const onMove = (e) => {
-    const el = ref.current
-    if (!el) return
-    const r = el.getBoundingClientRect()
+    if (!enabled || !ref.current) return
+    const r = ref.current.getBoundingClientRect()
     const x = (e.clientX - (r.left + r.width / 2)) * strength
     const y = (e.clientY - (r.top + r.height / 2)) * strength
-    el.style.transform = `translate(${x}px, ${y}px)`
+    ref.current.style.transform = `translate(${x}px, ${y}px)`
   }
 
   const onLeave = () => {
@@ -18,6 +21,7 @@ const MagneticButton = ({ to, href, children, variant = '', strength = 0.3, ...r
   }
 
   const className = `mbtn ${variant ? `mbtn--${variant}` : ''}`.trim()
+  const handlers = enabled ? { onMouseMove: onMove, onMouseLeave: onLeave } : {}
 
   const inner = (
     <>
@@ -28,19 +32,11 @@ const MagneticButton = ({ to, href, children, variant = '', strength = 0.3, ...r
   )
 
   return (
-    <span
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      style={{ display: 'inline-block', willChange: 'transform' }}
-    >
+    <span {...handlers} style={{ display: 'inline-block', willChange: enabled ? 'transform' : 'auto' }}>
       {to ? (
-        <Link ref={ref} to={to} className={className} {...rest}>
-          {inner}
-        </Link>
+        <Link ref={ref} to={to} className={className} {...rest}>{inner}</Link>
       ) : (
-        <a ref={ref} href={href} className={className} {...rest}>
-          {inner}
-        </a>
+        <a ref={ref} href={href} className={className} {...rest}>{inner}</a>
       )}
     </span>
   )

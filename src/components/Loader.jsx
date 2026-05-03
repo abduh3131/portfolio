@@ -1,14 +1,20 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { isTouch, prefersReducedMotion } from '../utils/device.js'
 
 const Loader = ({ onDone }) => {
   const [progress, setProgress] = useState(0)
   const [exiting, setExiting] = useState(false)
 
   useEffect(() => {
+    if (prefersReducedMotion()) {
+      setProgress(100)
+      setTimeout(() => onDone?.(), 50)
+      return
+    }
+    const duration = isTouch() ? 900 : 1600
     let raf
     const start = performance.now()
-    const duration = 1800
     const step = (now) => {
       const t = Math.min((now - start) / duration, 1)
       const eased = 1 - Math.pow(1 - t, 3)
@@ -16,7 +22,7 @@ const Loader = ({ onDone }) => {
       if (t < 1) raf = requestAnimationFrame(step)
       else {
         setExiting(true)
-        setTimeout(() => onDone?.(), 800)
+        setTimeout(() => onDone?.(), 600)
       }
     }
     raf = requestAnimationFrame(step)
@@ -30,16 +36,11 @@ const Loader = ({ onDone }) => {
           className="loader"
           initial={{ opacity: 1 }}
           exit={{ y: '-100%' }}
-          transition={{ duration: 0.9, ease: [0.83, 0, 0.17, 1] }}
+          transition={{ duration: 0.7, ease: [0.83, 0, 0.17, 1] }}
         >
-          <motion.div
-            initial={{ y: 60, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="loader__count"
-          >
+          <div className="loader__count">
             {String(progress).padStart(3, '0')}<em>%</em>
-          </motion.div>
+          </div>
           <div className="loader__bar">
             <motion.div
               className="loader__bar-fill"
@@ -48,14 +49,7 @@ const Loader = ({ onDone }) => {
               transition={{ ease: 'linear' }}
             />
           </div>
-          <motion.div
-            className="loader__label"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
-            ABDULLAH HANOOSH · LOADING SHELL
-          </motion.div>
+          <div className="loader__label">ABDULLAH HANOOSH</div>
         </motion.div>
       )}
     </AnimatePresence>

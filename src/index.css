@@ -55,7 +55,8 @@ body {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  html, body, * { cursor: none !important; }
+  html, body { cursor: none; }
+  a, button, [role="button"], input, textarea, select { cursor: none; }
 }
 
 a { color: inherit; text-decoration: none; }

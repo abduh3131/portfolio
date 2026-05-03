@@ -29,8 +29,8 @@
 
   <g transform="translate(250, 90)">
     <g font-family="Inter, sans-serif" font-size="11" fill="#8a857c">
-      <text x="0" y="20" fill="#eeeae0" font-size="14" font-weight="500">Patient · A. Hassan</text>
-      <text x="0" y="40" fill="#4d4940">MRN 0042 · DOB 1991-03-12 · F</text>
+      <text x="0" y="20" fill="#eeeae0" font-size="14" font-weight="500">Patient</text>
+      <text x="0" y="40" fill="#4d4940">MRN 0042 · open chart</text>
     </g>
 
     <g transform="translate(0, 70)">

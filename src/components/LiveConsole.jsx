@@ -11,16 +11,56 @@ const modules = [
   { name: 'portfolio',  status: 'LIVE',  meta: 'this site' },
 ]
 
-const events = [
-  { t: '02:47', tag: 'DEPLOY', text: 'AegisEMR v0.4.2 → staging environment',     tone: 'ok' },
-  { t: '02:31', tag: 'COMMIT', text: 'MicroPilot · fix Y-channel preprocessing',  tone: 'info' },
-  { t: '01:18', tag: 'BUILD',  text: 'EdTech app · 187 / 187 tests passed',       tone: 'ok' },
-  { t: '00:42', tag: 'OBSERV', text: 'Dr AI · 38 sessions transcribed today',     tone: 'info' },
-  { t: '23:55', tag: 'NOTE',   text: 'Logistics · APK delivered to stakeholders', tone: 'info' },
-  { t: '22:10', tag: 'SHIP',   text: 'Hanoosh Software · 4 active products live', tone: 'accent' },
-  { t: '21:04', tag: 'INFER',  text: 'Dr AI · WhisperX local inference 2.1s avg', tone: 'info' },
-  { t: '19:32', tag: 'HOTFIX', text: 'AegisEMR · RBAC role-cache invalidation',   tone: 'warn' },
+const eventPool = [
+  { tag: 'DEPLOY', text: 'AegisEMR v0.4.2 → staging environment',           tone: 'ok' },
+  { tag: 'COMMIT', text: 'MicroPilot · fix Y-channel preprocessing',        tone: 'info' },
+  { tag: 'BUILD',  text: 'EdTech app · 187 / 187 tests passed',             tone: 'ok' },
+  { tag: 'OBSERV', text: 'Dr AI · 38 sessions transcribed today',           tone: 'info' },
+  { tag: 'NOTE',   text: 'Logistics · APK delivered to stakeholders',       tone: 'info' },
+  { tag: 'SHIP',   text: 'Hanoosh Software · 4 active products live',       tone: 'accent' },
+  { tag: 'INFER',  text: 'Dr AI · WhisperX local inference 2.1s avg',       tone: 'info' },
+  { tag: 'HOTFIX', text: 'AegisEMR · RBAC role-cache invalidation',         tone: 'warn' },
+  { tag: 'COMMIT', text: 'AegisEMR · Prisma migration 0042 applied',        tone: 'info' },
+  { tag: 'BUILD',  text: 'Portfolio · vite build · 3.2s · 124 KB gzipped',  tone: 'ok' },
+  { tag: 'INFER',  text: 'MicroPilot · SegFormer-B0 · 18ms / frame',        tone: 'info' },
+  { tag: 'OBSERV', text: 'EdTech · 12 active live sessions',                tone: 'info' },
+  { tag: 'COMMIT', text: 'Logistics · live tracking · driver pin smoothing', tone: 'info' },
+  { tag: 'DEPLOY', text: 'Portfolio · docs/ → www.abdullahs.world',         tone: 'ok' },
+  { tag: 'NOTE',   text: 'Dr AI · zero external data transmission · ok',    tone: 'info' },
+  { tag: 'PERF',   text: 'AegisEMR · p95 query latency 84ms',               tone: 'info' },
+  { tag: 'OBSERV', text: 'Logistics · 247 trips logged this week',          tone: 'info' },
+  { tag: 'SHIP',   text: 'EdTech · Stripe Connect · payouts running',       tone: 'accent' },
+  { tag: 'COMMIT', text: 'AegisEMR · 8-role RBAC · audit-log middleware',   tone: 'info' },
+  { tag: 'INFER',  text: 'MicroPilot · Supercombo · 42ms / frame · TRT',    tone: 'info' },
+  { tag: 'HOTFIX', text: 'EdTech · matching algo · timezone edge-case',     tone: 'warn' },
+  { tag: 'BUILD',  text: 'AegisEMR · turborepo · 4 apps · 10 pkgs · ok',    tone: 'ok' },
+  { tag: 'OBSERV', text: 'Dr AI · clinic uptime · 312 days',                tone: 'info' },
+  { tag: 'NOTE',   text: 'Studio · all repos backed up · nightly snapshot', tone: 'info' },
+  { tag: 'COMMIT', text: 'Portfolio · split-text reveal · CSS keyframe',    tone: 'info' },
+  { tag: 'PERF',   text: 'Logistics · APK · 14 MB · cold-start 1.1s',       tone: 'info' },
+  { tag: 'INFER',  text: 'Dr AI · diarization · 96.4% speaker accuracy',    tone: 'info' },
+  { tag: 'SHIP',   text: 'MicroPilot · campus drive · 0 disengagements',    tone: 'accent' },
+  { tag: 'OBSERV', text: 'AegisEMR · BullMQ · 14 jobs / min · steady',      tone: 'info' },
+  { tag: 'COMMIT', text: 'EdTech · 7-factor matcher · weights re-tuned',    tone: 'info' },
 ]
+
+const randTime = (i) => {
+  const total = (Math.floor(Math.random() * 24 * 60) - i * 11 + 24 * 60) % (24 * 60)
+  const h = Math.floor(total / 60)
+  const m = total % 60
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`
+}
+
+const shuffle = (arr) => {
+  const a = arr.slice()
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
+const buildEvents = () => shuffle(eventPool).map((e, i) => ({ ...e, t: randTime(i) }))
 
 const stack = [
   'Python', 'TypeScript', 'React 19', 'Next.js', 'NestJS',
@@ -30,6 +70,7 @@ const stack = [
 ]
 
 const LiveConsole = () => {
+  const [events] = useState(() => buildEvents())
   const [feedIdx, setFeedIdx] = useState(0)
   const [activeMod, setActiveMod] = useState(0)
   const [tick, setTick] = useState(0)
@@ -46,7 +87,7 @@ const LiveConsole = () => {
     const b = setInterval(() => setActiveMod((i) => (i + 1) % modules.length), modMs)
     const c = setInterval(() => setTick((t) => t + 1), 1000)
     return () => { clearInterval(a); clearInterval(b); clearInterval(c) }
-  }, [])
+  }, [events.length])
 
   const visibleCount = touchRef.current ? 3 : 5
   const visibleFeed = Array.from({ length: visibleCount }, (_, i) => events[(feedIdx + i) % events.length])

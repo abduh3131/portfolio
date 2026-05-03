@@ -61,10 +61,10 @@
     <rect x="0" y="20" width="640" height="120" fill="#181818" stroke="#8aa3bd" stroke-opacity="0.2" rx="8"/>
 
     <g transform="translate(20, 50)" font-family="ui-monospace, 'SF Mono', monospace" font-size="11" fill="#8a857c">
-      <text fill="#eeeae0">▸ User · "What's the price for the deluxe package?"</text>
-      <text y="22" fill="#8aa3bd">  AI · "Deluxe runs $1,240 — includes setup + 1yr support."</text>
+      <text fill="#eeeae0">▸ User · "What's included with the pro plan?"</text>
+      <text y="22" fill="#8aa3bd">  AI · "Pro adds priority support, 1yr updates, and onboarding."</text>
       <text y="46" fill="#eeeae0">▸ User · "Do you ship internationally?"</text>
-      <text y="68" fill="#8aa3bd">  AI · "Yes — 32 countries. Shipping calculated at checkout."</text>
+      <text y="68" fill="#8aa3bd">  AI · "Yes — 32 countries. Live shipping calc at checkout."</text>
     </g>
   </g>
 

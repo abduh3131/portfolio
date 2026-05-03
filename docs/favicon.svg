@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="32" fill="#8aa3bd"/>
-  <text x="32" y="44" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="38" font-style="italic" font-weight="500" fill="#0a0a0a">A</text>
+  <rect width="64" height="64" rx="6" fill="#0a0a0a"/>
+  <circle cx="32" cy="32" r="22" fill="none" stroke="#8aa3bd" stroke-width="1.4"/>
+  <text x="22" y="44" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="500"
+        fill="#eeeae0">A</text>
+  <text x="42" y="44" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="500"
+        fill="#8aa3bd">H</text>
 </svg>
